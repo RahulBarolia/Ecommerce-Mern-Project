@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const apiClient = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "/api",
   withCredentials: true,
 });
 
