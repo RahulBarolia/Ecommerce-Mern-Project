@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, createContext } from "react";
-
+import { apiClient } from "./AuthProviderContext";
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
@@ -8,7 +8,7 @@ export const ProductProvider = ({ children }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/product");
+      const response = await apiClient.get("/product");
       setProducts(response.data.products);
     } catch (error) {
       console.log(error.message);
